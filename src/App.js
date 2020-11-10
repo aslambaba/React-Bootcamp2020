@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import React , { useEffect } from 'react';
 
 function App() {
+
+  useEffect(()=>{
+    async function getAPI(){
+      const data = await fetch('/api/movies');
+      const result = await data.json();
+      console.log(result);
+    };
+    getAPI();
+  },[])
+
   return (
     <div className="App">
       <header className="App-header">
